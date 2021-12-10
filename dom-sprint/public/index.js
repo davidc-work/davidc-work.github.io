@@ -198,8 +198,6 @@ window.addEventListener('load', () => {
         updateLocalStorageFromTable();
         updateTipAmounts();
         checkForBlanks(input);
-
-        console.log(input);
     });
 
     var containerElement = document.getElementById('listings-container');
