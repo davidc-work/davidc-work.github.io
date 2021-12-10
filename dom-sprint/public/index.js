@@ -74,10 +74,17 @@ function updateTable() {
 
         var amount = parseFloat(row.amount, 10);
         var tipPercentage = parseFloat(row.tipPercentage, 10);
-        var tipAmount = (amount * tipPercentage / 100).toFixed(2);
-        if (tipAmount === 'NaN') tipAmount = '0.00';
+        var tipAmount = (amount * tipPercentage / 100);
+        var totalAmount = (amount + tipAmount).toFixed(2);
+        tipAmount = tipAmount.toFixed(2);
+
+        if (tipAmount === 'NaN') {
+            tipAmount = '0.00';
+            totalAmount = '0.00';
+        }
 
         newCell(rowElement, tipAmount);
+        newCell(rowElement, totalAmount);
     });
 }
 
@@ -124,11 +131,17 @@ function updateTipAmounts () {
         var amount = parseFloat(row.children[1].firstChild.innerHTML, 10);
         var tipPercentage = parseFloat(row.children[2].firstChild.innerHTML, 10);
 
-        var tipAmount = (amount * tipPercentage / 100).toFixed(2).toString();
-        if (!parseFloat(tipAmount, 10)) tipAmount = '0.00';
+        var tipAmount = (amount * tipPercentage / 100);
+        var totalAmount = (amount + tipAmount).toFixed(2);
+        tipAmount = tipAmount.toFixed(2);
 
-        var cellElement = row.cells[3];
-        cellElement.innerHTML = '<p>' + tipAmount + '</p>';
+        if (!parseFloat(tipAmount, 10)) {
+            tipAmount = '0.00';
+            totalAmount = '0.00';
+        }
+
+        row.cells[3].innerHTML = '<p>' + tipAmount + '</p>';
+        row.cells[4].innerHTML = '<p>' + totalAmount + '</p>';
     }
 }
 
