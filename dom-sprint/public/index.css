@@ -249,6 +249,6 @@ input[type=number] {
 }
 
 @keyframes moveTitle {
-    from {background-position: 0;}
-    to {background-position: -46px;}
+    from {background-position: 0 0;}
+    to {background-position: 46px 46px;}
 }
