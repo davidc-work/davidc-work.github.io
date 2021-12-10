@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Sprint</title>
+</head>
+<link rel="stylesheet" href="index.css">
+<script src="index.js"></script>
+<body>
+    <div id="background"></div>
+    <div id="title-bar">
+        <div id="overlay"></div>
+        <p id="title">Tip Calculator</p>
+    </div>
+    <div id="main">
+        <div id="calculator-container">
+            <p class="input-name">Name:</p><input type="text" id="name"><br>
+            <p class="input-name">Amount:</p><p>$</p><input type="number" id="price" onchange="updateTip()" onpaste="this.onchange();" oninput="this.onchange();"><br>
+            <p class="input-name">Tip Percentage:</p>
+            <div style="display: inline; position: relative; top: 5px; right: 11px;" class="slidecontainer">
+                <input id="percentage-slider" type="range" min="0" max="100" value="20" class="slider" oninput="updatePercentageField();">
+            </div>
+            <input style="width: 55px;" type="number" value="20" id="tip-percentage" onchange="updateTip()" onpaste="this.onchange();" oninput="this.onchange();"><p>%</p><br>
+            <p style="margin-right: 5px;">Tip Amount:</p><p>$</p><p id="tip-amount">0.00</p><br>
+            <button id="add-listing" onclick="addListing();">Add to List</button>
+        </div>
+
+        <div id="listings-container">
+            <table contenteditable id="listings-table">
+                <img width="25px" height="25px" id="delete-button" src="img/delete-button.png" onclick="deleteRow();" title="Delete?" />
+                <tr contenteditable="false">
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th>Tip Percentage</th>
+                    <th>Tip Amount</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
