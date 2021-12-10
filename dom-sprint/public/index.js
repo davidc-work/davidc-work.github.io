@@ -204,7 +204,8 @@ function updatePercentageField() {
 }
 
 window.addEventListener('load', () => {
-    document.getElementById('main').className = 'visible';
+    setTimeout(() => document.getElementById('main').className = 'visible', 500);
+
     updateTable();
 
     var table = document.getElementById('listings-table');
