@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: "GOTHIC";
-    src: url('fonts/GOTHIC.ttf') format("truetype");
+    src: url('fonts/GOTHIC.TTF') format("truetype");
 }
 
 html, body {
