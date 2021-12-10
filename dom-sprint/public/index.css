@@ -180,6 +180,8 @@ button:hover {
     box-shadow: 0 0 35px -10px black;
     position: relative;
     z-index: 2;
+    animation: moveTitle 5s infinite;
+    animation-timing-function: linear;
 }
 
 #overlay {
@@ -244,4 +246,9 @@ input[type=number] {
 
 #percentage-slider::-webkit-slider-thumb:hover {
     background: rgb(255, 255, 255);
+}
+
+@keyframes moveTitle {
+    from {background-position: 0;}
+    to {background-position: -46px;}
 }
