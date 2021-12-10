@@ -83,13 +83,14 @@ function updateTable() {
             totalAmount = '0.00';
         }
 
-        newCell(rowElement, tipAmount);
-        newCell(rowElement, totalAmount);
+        newCell(rowElement, tipAmount, true);
+        newCell(rowElement, totalAmount, true);
     });
 }
 
-function newCell(rowElement, text) {
+function newCell(rowElement, text, removeEditable = false) {
     cellElement = rowElement.insertCell();
+    if (removeEditable) cellElement.contentEditable = false;
     cellElement.innerHTML = '<p>' + text + '</p>';
 
     function setAsSelected() {
